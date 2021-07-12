@@ -1,7 +1,5 @@
 import os
 import json
-
-import matplotlib.pyplot as plt
 import numpy as np
 import tensorflow as tf
 import cv2
@@ -70,9 +68,3 @@ def CenterLabelHeatMap(img_width, img_height, c_x, c_y, sigma):
     Exponent = D2 / E2
     heatmap = np.exp(-Exponent)
     return heatmap
-# pos2imgLine(np.array([1,10,2,10,3,10,4,10,5,10,6,10]),256,128,512)
-# img = pos2imgMulti(np.array([10,10,30,30,30,50,50,80,70,70,90,90]),256,128,512,3)
-# channels = img.shape[2]
-# for c in range(channels):
-#     plt.imshow(img[:,:,c])
-#     plt.show()

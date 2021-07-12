@@ -123,16 +123,6 @@ def heatmap2scatter(image,heatmap):
             image[y,x] = colors[c]
     return image
 def calAngleError(image,heatmap,pos,type=cv2.DIST_WELSCH,const=0):
-    # heatmap = heatmap.numpy()
-    # for c in range(heatmap.shape[-1]):
-    #     heatmap[:,:,c] = heatmap[:,:,c]/np.max(heatmap[:,:,c])
-    # heatmap = np.where(heatmap>0.5,1,0).astype(np.uint8)
-    # h,w,_ = image.shape
-    # n_heatmap = np.zeros([h,w,_])
-    # for c in range(heatmap.shape[2]):
-    #     n_heatmap[:,:,c]=cv2.resize(heatmap[:,:,c],(w,h))
-    # heatmap = np.array(n_heatmap,np.uint8)
-
     dxy = []
     gtLineAngles = []
     for i in range(3):
@@ -190,11 +180,3 @@ def calAngleErrorKey(heatmap,pos):
         return True,np.array(angleDiffs)
     else:
         return [False]
-# img = np.zeros([1024,512,3])
-# heatmap = np.zeros([256,128,3],np.uint8)
-# draw_lines(heatmap,[10,10,1000,1000,20,20,30,37,30,30,40,20])
-# img = line_regression(img,heatmap)
-# # img = heatmap2scatter(img,heatmap)
-# cv2.imshow("heatmap",heatmap)
-# cv2.imshow("line_regeression",img)
-# cv2.waitKey()

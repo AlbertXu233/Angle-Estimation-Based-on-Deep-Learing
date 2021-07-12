@@ -21,7 +21,7 @@ poses = [get_json_data(FilePath+name) for name in json_filenames]
 poses = [(512*pose//width).astype(np.int) for pose,width in zip(poses,old_widths)]
 N = 2
 labels = [pos2imgMulti(pos,finalHeight,finalWidth,numbers=N) for pos in poses]
-model = tf.keras.models.load_model(f"1Foot{N}Keypoints100.hdf5",compile=False)
+model = tf.keras.models.load_model(f"{N}Keypoints100.hdf5",compile=False)
 prefix = f"Two2OneRes/Keypoints100epoch/{N}/"
 os.makedirs(prefix,exist_ok=True)
 #保存预测的结果
